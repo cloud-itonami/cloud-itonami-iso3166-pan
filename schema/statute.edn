@@ -1,0 +1,16 @@
+;; schema/statute.edn — DataScript schema for `statute.facts` (ADR-2607141700).
+;; Identical shape to cloud-itonami-iso3166-jpn/-usa/-gbr/-deu/-fra/-can/-aus/
+;; -kor/-nld/-ita/-esp/-swe/-nor/-dnk/-fin/-prt/-bel/-bra/-mex/-chl/-arg/-zaf/
+;; -col/-ury/-cri's sibling files.
+
+{:statute/id {:db/unique :db.unique/identity}
+ :statute/title {}
+ :statute/jurisdiction {:db/index true}
+ :statute/kind {:db/index true}
+ :statute/law-number {}
+ :statute/url {}
+ :statute/url-provenance {:db/index true}
+ :statute/enacted-date {}
+ :statute/last-revised-date {}
+ :statute/retrieved-at {}
+ :statute/topic {:db/cardinality :db.cardinality/many :db/index true}}
