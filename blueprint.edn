@@ -7,4 +7,38 @@
  :itonami.blueprint/governor :market-entry-compliance-governor
  :itonami.blueprint/robotics false
  :itonami.blueprint/required-technologies [:identity :forms :dmn :bpmn :audit-ledger]
- :itonami.blueprint/status :public-oss}
+ :itonami.blueprint/status :public-oss
+ :itonami.blueprint/maturity :implemented
+ :itonami.blueprint/implemented-slice
+ "Full Actors-pattern implementation: MarketEntry-LLM advisor
+ (marketentry.marketentryllm) sealed behind an independent Market-Entry
+ Compliance Governor (marketentry.governor, 5-check: spec-basis,
+ evidence-incomplete [Registro Público incorporation + mandatory
+ resident agent for a Sociedad Anónima per Ley 32 de 1927, DGI RUC tax
+ registration, MICI Aviso de Operación/Panama Emprende commercial
+ license, DGCP/PanamaCompra procurement-participation registration --
+ four independently-sourced required-evidence items], retail-trade-
+ restriction [flagship, SECTOR-CONDITIONAL check: Constitución Política
+ Art. 288 comercio-al-por-menor restriction, independently verified
+ ONLY for :sector \"retail-trade\" engagements with
+ :non-panamanian-ownership? true -- never a blanket foreign-ownership
+ ban, proven by two contrasting fixtures in the governor contract
+ tests], engagement-fee-mismatch, already-drafted, already-submitted)
+ driving a langgraph-clj StateGraph (marketentry.operation) over an
+ append-only audit ledger; MemStore + langchain-store-backed
+ DatomicStore (marketentry.store, built on
+ io.github.kotoba-lang/langchain-store per ADR-2607141600, not a
+ hand-rolled enc/dec* codec); marketentry.facts grounded in a verified
+ Panama dossier (Registro Público de Panamá + resident-agent
+ requirement; Texto Único de la Ley N.º 22 de 2006 per Ley N.º 153 de
+ 2020, Gaceta Oficial Digital N.° 29107-A; PanamaCompra e-procurement
+ portal per Art. 172 Ley 22 de 2006; DGI RUC tax registration; MICI
+ Aviso de Operación/Panama Emprende; TACP as the dispute forum DISTINCT
+ from DGCP; Constitución Política Art. 288); dgcp.gob.pa and
+ panamaemprende.gob.pa were unreachable this session and are
+ deliberately NOT cited as provenance URLs (institutional attribution
+ only where unavoidable, never a fabricated URL); governor contract +
+ store parity + registry + phase + facts tests all passing; 0
+ clj-kondo errors (clojure -M:lint); CI (.github/workflows/ci.yml)
+ reconstructs the kotoba-lang/langgraph+langchain+langchain-store
+ sibling-checkout layout."}
