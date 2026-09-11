@@ -36,7 +36,7 @@ twice, enforced off dedicated `:drafted?`/`:submitted?` booleans, never
 a `:status` value.
 
 Check 3 is deliberately **sector-conditional, not a blanket rule**:
-`test/marketentry/governor_contract_test.clj`'s
+`test/marketentry/governor_contract_test.cljk`'s
 `retail-trade-restriction-does-not-fire-for-other-sectors` proves a
 non-Panamanian-owned engagement in a NON-retail sector proceeds through
 the ordinary escalate-then-approve path with no HARD hold, while
@@ -51,7 +51,7 @@ https://tacp.gob.pa/) independently adjudicates bid protests and
 procurement disputes; DGCP is the executive regulator that runs
 PanamaCompra and issues rules. `marketentry.facts/dispute-forum-spec-basis`
 exposes this distinction so no proposal conflates the two; see
-`test/marketentry/facts_test.clj`'s `dispute-forum-is-distinct-from-dgcp`.
+`test/marketentry/facts_test.cljk`'s `dispute-forum-is-distinct-from-dgcp`.
 
 ## Actuation
 
@@ -65,8 +65,8 @@ construction.** Two independent layers enforce this:
 - `marketentry.phase`'s phase table (`phase 0` through `phase 3`)
   never puts `:filing/draft` or `:filing/submit` in any phase's
   `:auto` set -- see `marketentry.phase`'s own docstring and
-  `test/marketentry/phase_test.clj`'s `filing-submit-never-auto`, plus
-  `test/marketentry/governor_contract_test.clj`'s
+  `test/marketentry/phase_test.cljk`'s `filing-submit-never-auto`, plus
+  `test/marketentry/governor_contract_test.cljk`'s
   `filing-draft-and-submit-never-auto-commit`.
 
 The actor may intake an engagement, assess a jurisdiction and draft a
@@ -176,9 +176,9 @@ as the other `cloud-itonami-iso3166-*` siblings:
   flagship check is an unconditional resident-representative/tax-ID
   requirement: this one is a CONSTITUTIONAL, sector-scoped restriction,
   never a blanket foreign-ownership ban (see the namespace docstrings
-  and `test/marketentry/governor_contract_test.clj`'s two contrasting
+  and `test/marketentry/governor_contract_test.cljk`'s two contrasting
   fixtures for the full honest disclosure).
-- `src/statute/facts.cljc` -- general-law catalog (pre-existing, not
+- `src/statute/facts.cljk` -- general-law catalog (pre-existing, not
   modified by this Wave): Ley N.º 2 de 1916 (Código Civil / Código de
   Comercio) and Ley N.º 81 de 2019 (Protección de Datos Personales),
   both cited via LEGISPAN (s3-legispan.asamblea.gob.pa).
@@ -200,7 +200,7 @@ Alongside the market-entry / statute catalogs, this repo carries a
 `com-junkawasaki/root`) — national dishes, protected products, beverages,
 crafts, festivals and heritage sites for Panama:
 
-- `src/culture/facts.cljc` — the catalog, source of truth (keyed by
+- `src/culture/facts.cljk` — the catalog, source of truth (keyed by
   uppercase ISO3, mirroring `statute.facts`).
 - `schema/culture.edn` — DataScript schema.
 - `data/culture-tx.edn` — derived DataScript tx-data (regenerated from
