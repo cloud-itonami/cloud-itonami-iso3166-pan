@@ -39,6 +39,6 @@
  deliberately NOT cited as provenance URLs (institutional attribution
  only where unavoidable, never a fabricated URL); governor contract +
  store parity + registry + phase + facts tests all passing; 0
- clj-kondo errors (clojure -M:lint); CI (.github/workflows/ci.yml)
+ clj-kondo errors (kbb -M:lint); CI (.github/workflows/ci.yml)
  reconstructs the kotoba-lang/langgraph+langchain+langchain-store
  sibling-checkout layout."}
